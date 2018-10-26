@@ -1,0 +1,167 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/game_area/GameArea.gd" type="Script" id=1]
+[ext_resource path="res://art/2d/background_middle_layer.png" type="Texture" id=2]
+[ext_resource path="res://art/2d/background_front_layer.png" type="Texture" id=3]
+[ext_resource path="res://art/2d/border.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 58, 540 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 594, 25 )
+
+[node name="GameArea" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ParallaxBackground" parent="." index="0"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="BackLayer" type="ParallaxLayer" parent="Background" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="Background/BackLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1420.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="MiddleLayer" type="ParallaxLayer" parent="Background" index="1"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 1140 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="Texture" type="TextureRect" parent="Background/MiddleLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 116.0
+margin_right = 1304.0
+margin_bottom = 1140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="FrontLayer" type="ParallaxLayer" parent="Background" index="2"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 1300 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="Texture" type="TextureRect" parent="Background/FrontLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 116.0
+margin_right = 1304.0
+margin_bottom = 1300.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Border" type="TextureRect" parent="Background" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1420.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 0
+
+[node name="MainColor" type="CanvasModulate" parent="Background" index="4"]
+
+color = Color( 0.617188, 0.982056, 1, 1 )
+
+[node name="LeftBorder" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 58, 540 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="RightBorder" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( 1362, 540 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 710, 25 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BarsStartPoint" type="Position2D" parent="." index="4"]
+
+position = Vector2( 710, 960 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BlocksTopLeftCorner" type="Position2D" parent="." index="5"]
+
+position = Vector2( 160, 160 )
+_sections_unfolded = [ "Transform" ]
+
+
