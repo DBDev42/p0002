@@ -12,7 +12,6 @@ extends Node
 
 # Constructors
 func _ready():
-	randomize()
 	start()
 
 # Process functions
@@ -20,3 +19,4 @@ func _ready():
 # Other functions
 func start():
 	OS.set_window_title(tr("TITLE"))
+	StateMachine.change_status(load("res://status/Status01.gd").new())

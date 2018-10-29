@@ -14,6 +14,13 @@ config/name="p0002"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Settings="*res://scripts/Settings.gd"
+Logger="*res://scripts/Logger.gd"
+Utils="*res://scripts/Utils.gd"
+StateMachine="*res://scripts/StateMachine.gd"
+
 [display]
 
 window/size/width=1920
@@ -28,4 +35,4 @@ locale_filter=[ 0, [ "en", "es" ] ]
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_clear_color=Color( 0.501961, 0.501961, 0.501961, 1 )
